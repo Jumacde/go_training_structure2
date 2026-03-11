@@ -10,7 +10,7 @@ func main() {
 
 	fmt.Println("please choice to execute programm.")
 	for {
-		fmt.Println("\n1: MultiplicationTable, 2: CheckPointer, 3:BMI-calculator, 0: end. ")
+		fmt.Println("\n1: MultiplicationTable, 2: CheckPointer, 3:BMI-calculator, 4: basic-calculate, 0: end. ")
 		if _, err := fmt.Scan(&choice); err == nil {
 			if choice == 0 {
 				println("bye bye.")
@@ -38,6 +38,11 @@ func main() {
 				bmi.SetBmi(0.0, 0.0, 0.0, "")
 				bmi.CalcBmi()
 				continue
+			case 4:
+				fmt.Println("execute basic-calculate")
+				calc := &Calc{}
+				calc.SetCalc(0.0, 0.0, 0.0)
+				calc.ChoiceOperation()
 			}
 
 		}
