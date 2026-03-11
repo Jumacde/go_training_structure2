@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "fmt" "math"
 
 type Calculator interface {
 	GetCalc() (float32, float32)
@@ -44,12 +44,21 @@ func (cal *Calc) Calc_div() float32 {
 	return cal.result
 }
 
+func (cal *Calc) Calc_mod() float32 {
+	floMod:= math.Mod(float64(cal.x), float64(cal.y))
+	cal.result = float32(floMod)
+	fmt.Printf("%.2f mod %.2f = %.2f", cal.x, cal.y, cal.result)
+	return cal.result
+}
+
+
+
 func (cal *Calc) ChoiceOperation() {
 	operations := 0
 
 	for {
 		fmt.Println("\nplease choice a arithmetic operations:")
-		fmt.Println("1: x + y, 2: x - y, 3: x * y, 4: x / y, 0: end")
+		fmt.Println("1: x + y, 2: x - y, 3: x * y, 4: x / y, 5: x mod y, 0: end")
 		if _, err := fmt.Scan(&operations); err == nil {
 			// input 0 == end program.
 			if operations == 0 {
@@ -77,6 +86,9 @@ func (cal *Calc) ChoiceOperation() {
 				continue
 			case 4:
 				cal.Calc_div()
+				continue
+			case 5:
+				cal.Calc_mod()
 				continue
 			}
 			fmt.Println("Invalid input. please input your height(cm) again.")
