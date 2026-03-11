@@ -1,2 +1,2 @@
-# -go_training_structure2
+# go_training_structure2
 retraining golang
