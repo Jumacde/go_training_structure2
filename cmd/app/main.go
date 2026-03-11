@@ -10,7 +10,7 @@ func main() {
 
 	fmt.Println("please choice to execute programm.")
 	for {
-		fmt.Println("\n1: MultiplicationTable, 2: CheckPointer, 3:BMI-calculator, 4: basic-calculate, 0: end. ")
+		fmt.Println("\n1: MultiplicationTable, 2: CheckPointer, 3:BMI-calculator, 4: basic-calculate, 5. easyPointer, 0: end. ")
 		if _, err := fmt.Scan(&choice); err == nil {
 			if choice == 0 {
 				println("bye bye.")
@@ -43,6 +43,13 @@ func main() {
 				calc := &Calc{}
 				calc.SetCalc(0.0, 0.0, 0.0)
 				calc.ChoiceOperation()
+			case 5:
+				fmt.Println("easy pointer")
+				ep := EasyPointer{leaderName: "Default", age: 0}
+				ep.SetEasyPointer("", 0)
+				ep.ShowInfo1()
+				ep.ShowInfo2()
+				ep.checkP()
 			}
 
 		}
